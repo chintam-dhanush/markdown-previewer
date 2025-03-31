@@ -1,0 +1,530 @@
+/* Base Styles with Modern Font Stack */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4895ef;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --success-color: #4cc9f0;
+    --warning-color: #f8961e;
+    --danger-color: #f72585;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    line-height: 1.6;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+    min-height: 100vh;
+}
+
+/* Load Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.container {
+    width: 100%;
+    max-width: 12000px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#theme-toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.editor-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .editor-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    resize: none;
+    box-shadow: var(--box-shadow);
+    background-color: white;
+    font-family: 'SF Mono', 'Roboto Mono', monospace;
+    line-height: 1.5;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+.preview {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    overflow-y: auto;
+    background-color: white;
+    box-shadow: var(--box-shadow);
+}
+
+/* Preview Content Styling */
+.preview h1, 
+.preview h2, 
+.preview h3, 
+.preview h4, 
+.preview h5, 
+.preview h6 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.preview h1 {
+    font-size: 2rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.preview h2 {
+    font-size: 1.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.3rem;
+}
+
+.preview p {
+    margin-bottom: 1rem;
+}
+
+.preview a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.preview a:hover {
+    text-decoration: underline;
+}
+
+.preview ul, 
+.preview ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+.preview blockquote {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-bottom: 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+.preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+}
+
+.preview table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.preview th, 
+.preview td {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+}
+
+.preview th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .container {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode textarea {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+body.dark-mode .preview {
+    background-color: #2d2d2d;
+    border-color: #444;
+}
+
+body.dark-mode button {
+    background-color: var(--secondary-color);
+}
+
+body.dark-mode button:hover {
+    background-color: var(--primary-color);
+}
+
+body.dark-mode .preview h1,
+body.dark-mode .preview h2,
+body.dark-mode .preview h3,
+body.dark-mode .preview h4,
+body.dark-mode .preview h5,
+body.dark-mode .preview h6 {
+    color: var(--accent-color);
+}
+
+body.dark-mode .preview h1,
+body.dark-mode .preview h2 {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .preview a {
+    color: var(--success-color);
+}
+
+body.dark-mode .preview th {
+    background-color: #333;
+}
+
+/* Code Block Styling */
+.preview pre {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    margin: 1rem 0;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    font-family: 'SF Mono', 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.preview code {
+    font-family: 'SF Mono', 'Roboto Mono', monospace;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+}
+
+body.dark-mode .preview code {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    color: #666;
+    font-size: 0.9rem;
+}
+
+body.dark-mode footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+    color: #aaa;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .button-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    textarea {
+        min-height: 300px;
+    }
+}
+
+/* Animation for theme toggle */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#theme-toggle:hover {
+    animation: spin 0.5s ease;
+}
+
+/* Tooltip for buttons */
+button[data-tooltip] {
+    position: relative;
+}
+
+button[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark-color);
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 10;
+    margin-bottom: 0.5rem;
+}
+
+body.dark-mode button[data-tooltip]:hover::after {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+/* Add these to your existing CSS */
+.editor-wrapper, .preview-wrapper {
+    position: relative;
+}
+
+.toolbar {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toolbar i {
+    font-size: 0.9rem;
+}
+
+.credits {
+    margin-top: 0.5rem;
+}
+
+.credits a {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.credits a:hover {
+    text-decoration: underline;
+}
+
+/* Auto-resizing textarea */
+textarea {
+    min-height: 300px;
+    transition: height 0.2s ease;
+}
+
+/* Dark mode adjustments for new elements */
+body.dark-mode .toolbar {
+    background-color: var(--secondary-color);
+}
+
+body.dark-mode .credits a {
+    color: var(--accent-color);
+}
+
+/* Status bar styling */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+body.dark-mode .status-bar {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #aaa;
+}
+
+/* Fullscreen styling */
+:fullscreen .container {
+    max-width: 95%;
+    padding: 1rem;
+}
+
+:fullscreen .editor-container {
+    height: 80vh;
+}
+
+/* Cheat sheet button */
+#cheat-sheet-btn {
+    background-color: var(--warning-color);
+}
+
+#cheat-sheet-btn:hover {
+    background-color: #e07c00;
+}
+
+/* Add syntax highlighting for more languages */
+pre[class*="language-"] {
+    margin: 1rem 0;
+    border-radius: var(--border-radius);
+}
+
+/* Better table styling */
+.preview table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .preview table {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.preview th, .preview td {
+    padding: 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .preview th,
+body.dark-mode .preview td {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.preview th {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+body.dark-mode .preview th {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Header Styles */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(90deg, #4361ee, #3a0ca3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.title-text {
+    letter-spacing: -0.5px;
+}

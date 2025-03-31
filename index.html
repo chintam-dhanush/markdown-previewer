@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Previewer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Include Marked.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.0.0/marked.min.js"></script>
+    <!-- Include Prism.js from CDN for syntax highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <!-- Add meta tags for better SEO and social sharing -->
+    <meta name="description" content="A beautiful Markdown previewer with live editing and dark mode support">
+    <meta name="theme-color" content="#4361ee">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>
+                    <span class="title-text">Markdown Previewer</span>
+                </h1>
+                <div class="button-group">
+                    <button id="theme-toggle" data-tooltip="Toggle theme"><i class="fas fa-moon"></i></button>
+                    <button id="fullscreen-btn" data-tooltip="Toggle fullscreen"><i class="fas fa-expand"></i></button>
+                    <button id="export-btn" data-tooltip="Export HTML"><i class="fas fa-file-export"></i></button>
+                    <button id="clear-btn" data-tooltip="Clear editor"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            </div>
+        </header>
+        
+        <div class="editor-container">
+            <div class="editor-wrapper">
+                <div class="toolbar">Editor</div>
+                <textarea id="editor" placeholder="# Welcome to Markdown Previewer\n\nStart writing your markdown here..."></textarea>
+            </div>
+            
+            <div class="preview-wrapper">
+                <div class="toolbar">Preview</div>
+                <div id="preview" class="preview"></div>
+            </div>
+        </div>
+        
+        <!-- Status bar should be inside container but above footer -->
+        <div class="status-bar">
+            <span id="char-count">0 characters</span>
+            <span id="word-count">0 words</span>
+            <span id="line-count">0 lines</span>
+        </div>
+        
+        <footer>
+            <p>Made with <i class="fas fa-heart" style="color: var(--danger-color);"></i> using Marked.js & Prism.js</p>
+            <div class="credits">
+                <a href="https://github.com/chintam-dhanush" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Include your custom JavaScript file -->
+    <script src="js/app.js"></script>
+</body>
+</html>
