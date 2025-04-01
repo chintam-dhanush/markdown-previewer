@@ -103,11 +103,39 @@ button:active {
 }
 
 .editor-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    flex: 1;
+  display: flex;
+    height: 70vh;
+    position: relative;
+    gap: 0;
 }
+
+/* .resize-handle {
+    width: 8px;
+    background: var(--accent-color);
+    cursor: col-resize;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    opacity: 0.5;
+    z-index: 10;
+}
+
+.resize-handle:hover,
+.resize-handle:active {
+    opacity: 1;
+    width: 12px;
+    background: var(--primary-color);
+}
+
+.editor-wrapper, 
+.preview-wrapper {
+    flex: 1;
+    min-width: 20%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+} */
+
+
 
 @media (max-width: 768px) {
     .editor-container {
@@ -127,6 +155,7 @@ textarea {
     background-color: white;
     font-family: 'SF Mono', 'Roboto Mono', monospace;
     line-height: 1.5;
+    flex: 1;
 }
 
 textarea:focus {
@@ -528,3 +557,31 @@ header h1 {
 .title-text {
     letter-spacing: -0.5px;
 }
+
+/* ===== Editor/Preview Layout Fixes ===== */
+.editor-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(0, 1fr);
+    gap: 20px;
+    height: 70vh;
+  }
+  
+  #editor, .preview {
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  .editor-wrapper, .preview-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .editor-container {
+      flex-direction: column;
+    }
+  }
+

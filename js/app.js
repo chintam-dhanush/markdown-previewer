@@ -98,32 +98,50 @@ function hello() {
     });
 
     // Export to HTML functionality
-    exportButton.addEventListener("click", () => {
+    document.getElementById("export-btn").addEventListener("click", () => {
+        const editor = document.getElementById("editor");
         const markdownContent = editor.value;
         const htmlContent = `
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Exported Markdown</title>
-    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
-    <style>
-        body {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        ${document.querySelector('style').textContent}
-    </style>
-</head>
-<body>
-    ${marked.parse(markdownContent)}
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exported Markdown</title>
+        <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked@4.0.10/marked.min.js"></script>
+        <style>
+            body {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 2rem;
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                background-color: #1e1e1e;
+                color: white;
+            }
+            pre {
+                background: #2d2d2d;
+                padding: 1rem;
+                border-radius: 5px;
+                overflow-x: auto;
+            }
+            code {
+                font-family: monospace;
+                color: #ffcc00;
+            }
+        </style>
+    </head>
+    <body>
+        <div>${marked.parse(markdownContent)}</div>
+        <script>
+            setTimeout(() => { Prism.highlightAll(); }, 100);
+        </script>
+    </body>
+    </html>
         `;
-        
+    
         const blob = new Blob([htmlContent], { type: "text/html" });
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
@@ -132,6 +150,7 @@ function hello() {
         link.click();
         document.body.removeChild(link);
     });
+    
 
     // Clear editor functionality
     clearButton.addEventListener("click", () => {
