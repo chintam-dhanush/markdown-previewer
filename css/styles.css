@@ -109,40 +109,6 @@ button:active {
     gap: 0;
 }
 
-/* .resize-handle {
-    width: 8px;
-    background: var(--accent-color);
-    cursor: col-resize;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-    opacity: 0.5;
-    z-index: 10;
-}
-
-.resize-handle:hover,
-.resize-handle:active {
-    opacity: 1;
-    width: 12px;
-    background: var(--primary-color);
-}
-
-.editor-wrapper, 
-.preview-wrapper {
-    flex: 1;
-    min-width: 20%;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-} */
-
-
-
-@media (max-width: 768px) {
-    .editor-container {
-        grid-template-columns: 1fr;
-    }
-}
-
 textarea {
     width: 100%;
     height: 100%;
@@ -346,69 +312,7 @@ body.dark-mode footer {
     color: #aaa;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .container {
-        padding: 1rem;
-    }
-    
-    header {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: flex-start;
-    }
-    
-    header h1 {
-        font-size: 2rem;
-    }
-    
-    .button-group {
-        width: 100%;
-        justify-content: space-between;
-    }
-    
-    textarea {
-        min-height: 300px;
-    }
-}
-
-/* Animation for theme toggle */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-#theme-toggle:hover {
-    animation: spin 0.5s ease;
-}
-
-/* Tooltip for buttons */
-button[data-tooltip] {
-    position: relative;
-}
-
-button[data-tooltip]:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--dark-color);
-    color: white;
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    white-space: nowrap;
-    z-index: 10;
-    margin-bottom: 0.5rem;
-}
-
-body.dark-mode button[data-tooltip]:hover::after {
-    background-color: var(--light-color);
-    color: var(--dark-color);
-}
-
-/* Add these to your existing CSS */
+/* Editor/Preview Layout */
 .editor-wrapper, .preview-wrapper {
     position: relative;
 }
@@ -558,30 +462,175 @@ header h1 {
     letter-spacing: -0.5px;
 }
 
-/* ===== Editor/Preview Layout Fixes ===== */
+/* Editor/Preview Layout */
 .editor-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: minmax(0, 1fr);
+    display: flex;
     gap: 20px;
     height: 70vh;
-  }
+}
   
-  #editor, .preview {
+#editor, .preview {
     height: 100%;
     overflow-y: auto;
-  }
+}
   
-  .editor-wrapper, .preview-wrapper {
+.editor-wrapper, .preview-wrapper {
     display: flex;
     flex-direction: column;
     flex: 1;
-  }
-  
-  /* Mobile responsiveness */
-  @media (max-width: 768px) {
-    .editor-container {
-      flex-direction: column;
-    }
-  }
+}
 
+/* ===== Mobile Responsive Improvements ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+        min-height: 100vh;
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+        width: 100%;
+    }
+    
+    .button-group {
+        width: 100%;
+        display:flexbox;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+    
+    button {
+        width: 100%;
+        justify-content: center;
+        padding: 0.7rem;
+        font-size: 1rem;
+        min-width: 44px;
+        min-height: 44px;
+        flex: 1 1 auto;
+    }
+    
+    #theme-toggle {
+        width: auto;
+        height: auto;
+        border-radius: var(--border-radius);
+        aspect-ratio: 1;
+    }
+    
+    button i {
+        font-size: 1.1rem;
+    }
+    
+    .editor-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 70vh;
+        gap: 1.5rem;
+    }
+    
+    .editor-wrapper, 
+    .preview-wrapper {
+        flex: 1 1 auto;
+        min-height: 300px;
+        height: 40vh;
+    }
+    
+    textarea {
+        min-height: 40vh;
+        padding: 1rem;
+    }
+    
+    .preview {
+        min-height: 40vh;
+        padding: 1rem;
+        overflow-y: auto;
+    }
+    
+    .status-bar {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+    
+    .status-bar span {
+        flex: 1 1 30%;
+        text-align: center;
+        font-size: 0.75rem;
+    }
+    
+    footer {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Adjust tooltips for mobile */
+    button[data-tooltip]:hover::after {
+        display: none;
+    }
+    
+    /* Make sure editor and preview take full width */
+    .editor-wrapper, .preview-wrapper {
+        width: 100%;
+    }
+    
+    /* Adjust preview content for smaller screens */
+    .preview h1 {
+        font-size: 1.6rem;
+    }
+    
+    .preview h2 {
+        font-size: 1.4rem;
+    }
+    
+    .preview pre {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Additional small screen adjustments */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .button-group {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    button {
+        flex: 1 1 45%;
+        padding: 0.8rem 0.5rem;
+    }
+    
+    button i {
+        margin: 0 auto;
+    }
+    
+    .editor-wrapper, 
+    .preview-wrapper {
+        height: 35vh;
+    }
+    
+    textarea {
+        min-height: 35vh;
+    }
+    
+    .status-bar span {
+        flex: 1 1 100%;
+        text-align: left;
+    }
+}
