@@ -42,4 +42,3 @@ A beautiful live Markdown editor with real-time preview, syntax highlighting, an
 
 🔗 **Connect with me**:  
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-blue?logo=github)](https://github.com/chintam-dhanush)  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](www.linkedin.com/in/dhanush-chintam-65470a324) 
