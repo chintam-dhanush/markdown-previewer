@@ -560,7 +560,7 @@ header h1 {
 
 /* ===== Editor/Preview Layout Fixes ===== */
 .editor-container {
-    display: grid;
+   /* display: grid; */
     grid-template-columns: 1fr 1fr;
     grid-template-rows: minmax(0, 1fr);
     gap: 20px;
