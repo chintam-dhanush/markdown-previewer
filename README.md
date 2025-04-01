@@ -2,7 +2,7 @@
 
 A beautiful live Markdown editor with real-time preview, syntax highlighting, and dark mode.
 
-🔗 **Live Demo**: [https://chintam-dhanush.github.io/markdown-previewer/](https://yourusername.github.io/markdown-previewer)
+🔗 **Live Demo**: [https://chintam-dhanush.github.io/markdown-previewer/](https://chintam-dhanush.github.io/markdown-previewer/)
 
 ## ✨ Features
 
